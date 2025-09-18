@@ -1,0 +1,14 @@
+Checkpoint Functionality Test File
+===================================
+This file is used to test the checkpoint button functionality.
+
+Original content - this should be restored after checkpoint reset.
+
+Steps to test:
+1. Create a checkpoint using the extension button
+2. Modify this file
+3. Reset to checkpoint using the extension button  
+4. Verify the file returns to original state
+
+Test modifications below this line:
+-----------------------------------
