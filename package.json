@@ -1,0 +1,102 @@
+{
+  "name": "anyone-can-code",
+  "displayName": "Anyone Can Code",
+  "description": "A VS Code extension that helps beginners learn to code with interactive features",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:anyone-can-code.helloWorld",
+    "onCommand:anyone-can-code.codingTip",
+    "onCommand:anyone-can-code.createTests",
+    "onCommand:anyone-can-code.showProjectPrompt",
+    "onCommand:anyone-can-code.showTestPrompt",
+    "onCommand:anyone-can-code.addProjectProtectedPattern",
+    "onCommand:anyone-can-code.addTestProtectedPattern",
+    "onCommand:anyone-can-code.checkProtectedCode",
+    "onCommand:anyone-can-code.viewProtectedPatterns",
+    "onCommand:anyone-can-code.showCheckpointPanel",
+    "onCommand:anyone-can-code.createCheckpoint",
+    "onCommand:anyone-can-code.resetToCheckpoint"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "anyone-can-code.helloWorld",
+        "title": "Anyone Can Code: Hello World"
+      },
+      {
+        "command": "anyone-can-code.codingTip",
+        "title": "Anyone Can Code: Get Coding Tip"
+      },
+      {
+        "command": "anyone-can-code.createTests",
+        "title": "Anyone Can Code: Create Tests Structure"
+      },
+      {
+        "command": "anyone-can-code.showProjectPrompt",
+        "title": "Anyone Can Code: Show Project Review Prompt"
+      },
+      {
+        "command": "anyone-can-code.showTestPrompt",
+        "title": "Anyone Can Code: Show Test Review Prompt"
+      },
+      {
+        "command": "anyone-can-code.addProjectProtectedPattern",
+        "title": "Anyone Can Code: Add Project Protected Pattern"
+      },
+      {
+        "command": "anyone-can-code.addTestProtectedPattern",
+        "title": "Anyone Can Code: Add Test Protected Pattern"
+      },
+      {
+        "command": "anyone-can-code.checkProtectedCode",
+        "title": "Anyone Can Code: Check Protected Code"
+      },
+      {
+        "command": "anyone-can-code.viewProtectedPatterns",
+        "title": "Anyone Can Code: View Protected Patterns"
+      },
+      {
+        "command": "anyone-can-code.showCheckpointPanel",
+        "title": "Anyone Can Code: Show Checkpoint Panel"
+      },
+      {
+        "command": "anyone-can-code.createCheckpoint",
+        "title": "Anyone Can Code: Create Checkpoint"
+      },
+      {
+        "command": "anyone-can-code.resetToCheckpoint",
+        "title": "Anyone Can Code: Reset to Checkpoint",
+        "keybindings": [
+          {
+            "key": "ctrl+alt+r",
+            "mac": "cmd+option+r",
+            "when": "editorTextFocus"
+          }
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.60.0",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "eslint": "^8.39.0",
+    "typescript": "^4.9.5"
+  }
+}

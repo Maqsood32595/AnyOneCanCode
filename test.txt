@@ -1,0 +1,4 @@
+Test file for Git checkpoint functionality
+This file will be used to test the checkpoint system
+You can modify this file and then use the checkpoint commands
+Modification.
