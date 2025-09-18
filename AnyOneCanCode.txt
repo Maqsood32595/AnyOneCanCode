@@ -1,0 +1,6 @@
+Commands 
+
+git tag -f anyonecancode-checkpoint  
+git tag -l   
+echo "Testing checkpoint reset functionality" >> test.txt
+git reset --hard anyonecancode-checkpoint
