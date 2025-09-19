@@ -1,0 +1,313 @@
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--vscode-editor-background);
+}
+
+/* Chat Container */
+.chat-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Message Bubbles */
+.message-bubble {
+  max-width: 80%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  position: relative;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.message-bubble.user {
+  align-self: flex-end;
+  background-color: var(--vscode-button-background);
+  color: var(--vscode-button-foreground);
+  margin-left: 20%;
+}
+
+.message-bubble.assistant {
+  align-self: flex-start;
+  background-color: var(--vscode-input-background);
+  color: var(--vscode-input-foreground);
+  margin-right: 20%;
+}
+
+.message-bubble.system {
+  align-self: center;
+  background-color: #2a2a2a;
+  color: #888;
+  font-style: italic;
+  max-width: 90%;
+}
+
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 0.8em;
+  opacity: 0.8;
+}
+
+.message-role {
+  font-weight: 600;
+}
+
+.message-time {
+  font-size: 0.7em;
+}
+
+.message-content {
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Command Proposal */
+.command-proposal {
+  background-color: #2a2a2a;
+  border-radius: 6px;
+  padding: 12px;
+  margin: 8px 0;
+}
+
+.command-description {
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #e0e0e0;
+}
+
+.command-code {
+  background-color: #1a1a1a;
+  padding: 12px;
+  border-radius: 4px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.9em;
+  overflow-x: auto;
+  margin: 8px 0;
+  color: #d4d4d4;
+  border-left: 3px solid #0e639c;
+}
+
+.command-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.command-actions button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8em;
+  transition: background-color 0.2s;
+}
+
+.approve-btn {
+  background-color: #2ea043;
+  color: white;
+}
+
+.approve-btn:hover {
+  background-color: #3fb950;
+}
+
+.edit-btn {
+  background-color: #e3b341;
+  color: black;
+}
+
+.edit-btn:hover {
+  background-color: #f2cc60;
+}
+
+.deny-btn {
+  background-color: #da3633;
+  color: white;
+}
+
+.deny-btn:hover {
+  background-color: #f85149;
+}
+
+/* Thinking Indicator */
+.thinking-indicator {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background-color: var(--vscode-input-background);
+  border-radius: 8px;
+  align-self: flex-start;
+  margin-right: 20%;
+  animation: pulse 1.5s infinite;
+}
+
+.thinking-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--vscode-button-background);
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+.thinking-text {
+  font-size: 0.9em;
+  color: var(--vscode-input-foreground);
+  opacity: 0.8;
+}
+
+/* Input Area */
+.input-area {
+  padding: 16px;
+  border-top: 1px solid var(--vscode-input-border);
+  background-color: var(--vscode-editor-background);
+}
+
+.input-container {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.message-input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid var(--vscode-input-border);
+  background-color: var(--vscode-input-background);
+  color: var(--vscode-input-foreground);
+  border-radius: 4px;
+  font-family: var(--vscode-font-family);
+  font-size: 0.9em;
+}
+
+.message-input:focus {
+  outline: none;
+  border-color: var(--vscode-button-background);
+}
+
+.send-button {
+  padding: 10px 14px;
+  background-color: var(--vscode-button-background);
+  color: var(--vscode-button-foreground);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.send-button:hover:not(:disabled) {
+  background-color: var(--vscode-button-hoverBackground);
+}
+
+.send-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes bounce {
+
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+
+  40% {
+    transform: scale(1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .message-bubble {
+    max-width: 90%;
+    margin-left: 10% !important;
+    margin-right: 10% !important;
+  }
+
+  .command-actions {
+    flex-direction: column;
+  }
+
+  .command-actions button {
+    flex: 1;
+  }
+}
+
+/* Code Block Styling */
+pre,
+code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.9em;
+}
+
+pre {
+  background-color: #1a1a1a;
+  padding: 12px;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: 8px 0;
+  border-left: 3px solid #0e639c;
+}
+
+code {
+  background-color: #2a2a2a;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #d4d4d4;
+}
